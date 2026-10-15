@@ -1,22 +1,13 @@
 package com.guessmarket.ui;
 
-
-
-
 import com.guessmarket.engine.dto.*;
 import com.guessmarket.ui.network.HttpClientAdapter;
-
-
-
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;
-
-
-
 
 import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -32,9 +23,6 @@ import javafx.stage.Window;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-
-
-
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -46,7 +34,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 public class MainController {
 
@@ -109,12 +96,9 @@ public class MainController {
     @FXML private Button btnStartEvent;
     @FXML private Button btnCloseEvent;
 
-    
-    
-    
     private String currentUsername = "SystemUser";
     private ScheduledExecutorService pollingExecutor;
-    private boolean isUpdatingState = false; 
+    private boolean isUpdatingState = false;
 
     private final Gson gson = new GsonBuilder()
             .registerTypeAdapter(LocalDateTime.class, (JsonSerializer<LocalDateTime>) (src, typeOfSrc, context) ->
@@ -188,14 +172,12 @@ public class MainController {
             ServerStateWrapper state = gson.fromJson(jsonResponse, ServerStateWrapper.class);
             this.lastKnownState = state;
 
-            
             String selectedEventId = selectedEvent != null ? selectedEvent.eventId() : null;
             String selectedUserName = selectedUser != null ? selectedUser.getUsername() : null;
 
             OutcomeDTO selectedOutcome = outcomesTableView.getSelectionModel().getSelectedItem();
-            String selectedOutcomeId = selectedOutcome != null ? selectedOutcome.getOutcomeId() : null;
+            String selectedOutcomeId = selectedOutcome != null ? selectedOutcome.outcomeId() : null;
 
-            
             isUpdatingState = true;
 
             if (state.events != null) {
@@ -243,7 +225,6 @@ public class MainController {
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Failed to parse JSON server state: " + e.getMessage());
         } finally {
-            
             isUpdatingState = false;
             onSelectionStateChanged();
         }
@@ -259,7 +240,7 @@ public class MainController {
         if (colMarketMaker != null) colMarketMaker.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().marketMakerName()));
 
         eventsTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-            if (isUpdatingState) return; 
+            if (isUpdatingState) return;
             this.selectedEvent = newVal;
             onSelectionStateChanged();
         });
@@ -273,7 +254,7 @@ public class MainController {
         if (colUserBalance != null) colUserBalance.setCellValueFactory(cell -> new SimpleStringProperty(String.format("$%.2f", cell.getValue().getBalance())));
 
         usersTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-            if (isUpdatingState) return; 
+            if (isUpdatingState) return;
             this.selectedUser = newVal;
             onSelectionStateChanged();
         });
@@ -284,8 +265,8 @@ public class MainController {
         outcomesTableView.setItems(activeOutcomesData);
         outcomesTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        if (colOutcomeDesc != null) colOutcomeDesc.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getDescription()));
-        if (colOutcomePrice != null) colOutcomePrice.setCellValueFactory(cell -> new SimpleStringProperty(String.format("$%.2f", cell.getValue().getCurrentPrice())));
+        if (colOutcomeDesc != null) colOutcomeDesc.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().description()));
+        if (colOutcomePrice != null) colOutcomePrice.setCellValueFactory(cell -> new SimpleStringProperty(String.format("$%.2f", cell.getValue().currentPrice())));
     }
 
     @SuppressWarnings("unchecked")
@@ -397,7 +378,7 @@ public class MainController {
 
     private void loadEventOrderBooksAndOutcomes(String eventId) {
         OutcomeDTO selectedOutcome = outcomesTableView.getSelectionModel().getSelectedItem();
-        String activeSelectionId = (selectedOutcome != null) ? selectedOutcome.getOutcomeId() : null;
+        String activeSelectionId = (selectedOutcome != null) ? selectedOutcome.outcomeId() : null;
         loadEventOrderBooksAndOutcomes(eventId, activeSelectionId);
     }
 
@@ -407,14 +388,14 @@ public class MainController {
         activeOutcomesData.clear();
         if (lastKnownState.outcomes != null) {
             List<OutcomeDTO> relevantOutcomes = lastKnownState.outcomes.stream()
-                    .filter(outcome -> outcome != null && eventId.equals(outcome.getEventId()))
+                    .filter(outcome -> outcome != null && eventId.equals(outcome.eventId()))
                     .toList();
 
             activeOutcomesData.setAll(relevantOutcomes);
 
             if (activeSelectionId != null) {
                 for (OutcomeDTO outcome : activeOutcomesData) {
-                    if (activeSelectionId.equals(outcome.getOutcomeId())) {
+                    if (activeSelectionId.equals(outcome.outcomeId())) {
                         outcomesTableView.getSelectionModel().select(outcome);
                         break;
                     }
@@ -452,7 +433,6 @@ public class MainController {
         this.lastKnownState = null;
 
         if (usernameToLogout != null) {
-            
             HttpClientAdapter.getInstance().logout(usernameToLogout)
                     .whenComplete((res, ex) -> Platform.runLater(this::swapToLoginScene));
         } else {
@@ -498,7 +478,7 @@ public class MainController {
             double quantity = Double.parseDouble(txtSharesAmount.getText().trim());
             btnExecuteTrade.setDisable(true);
 
-            HttpClientAdapter.getInstance().trade(selectedEvent.eventId(), currentUsername, selectedOutcome.getOutcomeId(), quantity)
+            HttpClientAdapter.getInstance().trade(selectedEvent.eventId(), currentUsername, selectedOutcome.outcomeId(), quantity)
                     .thenAccept(response -> Platform.runLater(() -> {
                         btnExecuteTrade.setDisable(false);
                         txtSharesAmount.clear();
@@ -535,7 +515,7 @@ public class MainController {
             showAlert(Alert.AlertType.WARNING, "Validation Error", "Select a winning outcome first.");
             return;
         }
-        HttpClientAdapter.getInstance().closeEvent(selectedEvent.eventId(), currentUsername, winningOutcome.getOutcomeId())
+        HttpClientAdapter.getInstance().closeEvent(selectedEvent.eventId(), currentUsername, winningOutcome.outcomeId())
                 .thenAccept(response -> Platform.runLater(() -> showAlert(Alert.AlertType.INFORMATION, "Event Closed", "Event closed successfully. Payouts processed.")))
                 .exceptionally(ex -> {
                     Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Server Error", ex.getMessage()));

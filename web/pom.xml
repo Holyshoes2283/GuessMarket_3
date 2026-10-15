@@ -37,7 +37,7 @@
             <version>${gson.version}</version>
         </dependency>
 
-        <!-- Jakarta Servlet API for Tomcat 10+ Container -->
+        <!-- Jakarta Servlet API native to Tomcat 10+ -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
@@ -47,15 +47,10 @@
     </dependencies>
 
     <build>
-        <!--
-            CRITICAL FIX: Changed from 'GuessMarket' to lowercase 'guessmarket'.
-            Generates 'guessmarket.war', automatically matching the Tomcat context
-            path expected by HttpClientAdapter (http://localhost:8080/guessmarket).
-        -->
         <finalName>guessmarket</finalName>
 
         <plugins>
-            <!-- Maven WAR Plugin configured for Servlet 6.0 annotation-driven web apps -->
+            <!-- Maven WAR Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>

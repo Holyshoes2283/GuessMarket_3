@@ -1,4 +1,4 @@
-package com.guessmarket.ui.views;
+package com.guessmarket.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

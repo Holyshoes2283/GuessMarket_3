@@ -1,8 +1,0 @@
-<!-- Example FXML snippet representing the Load section -->
-<HBox spacing="10" alignment="CENTER_LEFT" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.guessmarket.ui.controllers.DashboardController">
-    <!-- Button bound to the asynchronous load handler -->
-    <Button fx:id="btnLoadXml" text="Load XML File" onAction="#handleLoadXml" />
-
-    <!-- ProgressBar initialized as hidden, injected into Controller via fx:id -->
-    <ProgressBar fx:id="progressBar" visible="false" prefWidth="200" />
-</HBox>

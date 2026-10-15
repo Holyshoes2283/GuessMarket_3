@@ -12,9 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
-
 
 public class LoginController {
 
@@ -45,7 +43,7 @@ public class LoginController {
                         errorLabel.setTextFill(javafx.scene.paint.Color.web("#d32f2f"));
 
                         String errorMsg = ex.getMessage();
-                        
+
                         if (errorMsg != null && errorMsg.contains("Body:")) {
                             String jsonStr = errorMsg.substring(errorMsg.indexOf("Body:") + 5).trim();
                             try {
@@ -67,17 +65,21 @@ public class LoginController {
 
     private void transitionToMainDashboard(String authenticatedUsername) {
         try {
-            
-            URL resourceUrl = getClass().getResource("/Main.fxml");
+            // FIXED: Relative path. Looks inside the 'views' folder directly beneath LoginController
+            URL resourceUrl = getClass().getResource("views/Dashboard.fxml");
+
             if (resourceUrl == null) {
-                throw new IllegalStateException("CRITICAL ERROR: Cannot find /Main.fxml in src/main/resources/");
+                // Fallback to absolute path just in case
+                resourceUrl = getClass().getResource("/views/Dashboard.fxml");
+            }
+
+            if (resourceUrl == null) {
+                throw new IllegalStateException("CRITICAL: Maven is still blocking the FXML file from being packaged.");
             }
 
             FXMLLoader loader = new FXMLLoader(resourceUrl);
             Parent mainRoot = loader.load();
 
-            
-            
             MainController mainController = loader.getController();
             mainController.initData(authenticatedUsername);
 
@@ -89,8 +91,10 @@ public class LoginController {
             stage.setResizable(true);
             stage.centerOnScreen();
 
-        } catch (IOException e) {
-            errorLabel.setText("Critical Error: Failed to load the main dashboard UI.");
+        } catch (Exception e) {
+            loginButton.setDisable(false);
+            errorLabel.setTextFill(javafx.scene.paint.Color.web("#d32f2f"));
+            errorLabel.setText("UI Error: " + e.getMessage());
             e.printStackTrace();
         }
     }

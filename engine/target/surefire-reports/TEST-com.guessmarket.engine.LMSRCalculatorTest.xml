@@ -1,65 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.guessmarket.engine.LMSRCalculatorTest" time="0.052" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.guessmarket.engine.LMSRCalculatorTest" time="0.053" tests="3" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="java.specification.version" value="26"/>
-    <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/alonimac/Library/Mobile Documents/com~apple~CloudDocs/Guess market/intellij_GuessMarket_CLEAN/GuessMarket/engine/target/test-classes:/Users/alonimac/Library/Mobile Documents/com~apple~CloudDocs/Guess market/intellij_GuessMarket_CLEAN/GuessMarket/engine/target/classes:/Users/alonimac/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/alonimac/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/alonimac/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/alonimac/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/alonimac/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/alonimac/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:"/>
-    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="java.specification.version" value="25"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\AlonAorus\Downloads\GuessMarket_3_submission_latest_14_10_LASTLAST4\GuessMarket_3_submission_latest_14_10_3\GuessMarket_EX3_sourcecode\engine\target\test-classes;C:\Users\AlonAorus\Downloads\GuessMarket_3_submission_latest_14_10_LASTLAST4\GuessMarket_3_submission_latest_14_10_3\GuessMarket_EX3_sourcecode\engine\target\classes;C:\Users\AlonAorus\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\AlonAorus\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\AlonAorus\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\AlonAorus\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\AlonAorus\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\AlonAorus\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
-    <property name="os.name" value="Mac OS X"/>
-    <property name="java.vm.specification.version" value="26"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Jerusalem"/>
+    <property name="user.country.format" value="IL"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="25"/>
+    <property name="user.country" value="GB"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="user.country" value="IL"/>
-    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/alonimac/Library/Mobile Documents/com~apple~CloudDocs/Guess market/intellij_GuessMarket_CLEAN/GuessMarket/engine/target/surefire/surefirebooter-20261013232906041_3.jar /Users/alonimac/Library/Mobile Documents/com~apple~CloudDocs/Guess market/intellij_GuessMarket_CLEAN/GuessMarket/engine/target/surefire 2026-10-13T23-29-05_932-jvmRun1 surefire-20261013232906041_1tmp surefire_0-20261013232906041_2tmp"/>
-    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="sun.boot.library.path" value="C:\Users\AlonAorus\.jdks\graalvm-jdk-25\bin"/>
+    <property name="sun.java.command" value="C:\Users\AlonAorus\AppData\Local\Temp\surefire18286746860848165518\surefirebooter-20261015170207425_3.jar C:\Users\AlonAorus\AppData\Local\Temp\surefire18286746860848165518 2026-10-15T17-02-07_305-jvmRun1 surefire-20261015170207425_1tmp surefire_0-20261015170207425_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/alonimac/Library/Mobile Documents/com~apple~CloudDocs/Guess market/intellij_GuessMarket_CLEAN/GuessMarket/engine/target/test-classes:/Users/alonimac/Library/Mobile Documents/com~apple~CloudDocs/Guess market/intellij_GuessMarket_CLEAN/GuessMarket/engine/target/classes:/Users/alonimac/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/alonimac/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/alonimac/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/alonimac/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/alonimac/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/alonimac/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:"/>
+    <property name="surefire.test.class.path" value="C:\Users\AlonAorus\Downloads\GuessMarket_3_submission_latest_14_10_LASTLAST4\GuessMarket_3_submission_latest_14_10_3\GuessMarket_EX3_sourcecode\engine\target\test-classes;C:\Users\AlonAorus\Downloads\GuessMarket_3_submission_latest_14_10_LASTLAST4\GuessMarket_3_submission_latest_14_10_3\GuessMarket_EX3_sourcecode\engine\target\classes;C:\Users\AlonAorus\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\AlonAorus\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\AlonAorus\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\AlonAorus\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\AlonAorus\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\AlonAorus\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="/Users/alonimac"/>
+    <property name="user.home" value="C:\Users\AlonAorus"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2026-08-18"/>
-    <property name="java.home" value="/usr/local/Cellar/openjdk/26.0.2.1/libexec/openjdk.jdk/Contents/Home"/>
-    <property name="file.separator" value="/"/>
-    <property name="basedir" value="/Users/alonimac/Library/Mobile Documents/com~apple~CloudDocs/Guess market/intellij_GuessMarket_CLEAN/GuessMarket/engine"/>
+    <property name="java.version.date" value="2025-09-16"/>
+    <property name="java.home" value="C:\Users\AlonAorus\.jdks\graalvm-jdk-25"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\AlonAorus\Downloads\GuessMarket_3_submission_latest_14_10_LASTLAST4\GuessMarket_3_submission_latest_14_10_3\GuessMarket_EX3_sourcecode\engine"/>
+    <property name="style.color" value="always"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/alonimac/Library/Mobile Documents/com~apple~CloudDocs/Guess market/intellij_GuessMarket_CLEAN/GuessMarket/engine/target/surefire/surefirebooter-20261013232906041_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\AlonAorus\AppData\Local\Temp\surefire18286746860848165518\surefirebooter-20261015170207425_3.jar"/>
+    <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
-    <property name="java.runtime.version" value="26.0.2.1"/>
-    <property name="user.name" value="alonimac"/>
-    <property name="stdout.encoding" value="UTF-8"/>
-    <property name="path.separator" value=":"/>
-    <property name="os.version" value="15.6"/>
-    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.runtime.version" value="25+37-LTS-jvmci-b01"/>
+    <property name="user.name" value="AlonAorus"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="java.vendor.version" value="Homebrew"/>
-    <property name="localRepository" value="/Users/alonimac/.m2/repository"/>
-    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
-    <property name="java.io.tmpdir" value="/var/folders/n3/lyjqtmb16vqd6m_522wpq6_h0000gn/T/"/>
-    <property name="java.version" value="26.0.2.1"/>
-    <property name="user.dir" value="/Users/alonimac/Library/Mobile Documents/com~apple~CloudDocs/Guess market/intellij_GuessMarket_CLEAN/GuessMarket/engine"/>
-    <property name="os.arch" value="x86_64"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Oracle GraalVM 25+37.1"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\plugins\maven-plugin\lib\intellij.maven.rt\maven-event-listener.jar"/>
+    <property name="localRepository" value="C:\Users\AlonAorus\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\ALONAO~1\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2026.2.3"/>
+    <property name="java.version" value="25"/>
+    <property name="user.dir" value="C:\Users\AlonAorus\Downloads\GuessMarket_3_submission_latest_14_10_LASTLAST4\GuessMarket_3_submission_latest_14_10_3\GuessMarket_EX3_sourcecode\engine"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="jansi.passthrough" value="true"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="native.encoding" value="UTF-8"/>
-    <property name="java.library.path" value="/Users/alonimac/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\AlonAorus\.jdks\graalvm-jdk-25\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\AlonAorus\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Users\AlonAorus\AppData\Local\Microsoft\WindowsApps;C:\Users\AlonAorus\Downloads\GuessMarketEx2\GuessMarket\maven\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\bin;;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="stderr.encoding" value="UTF-8"/>
-    <property name="java.vendor" value="Homebrew"/>
-    <property name="java.vm.version" value="26.0.2.1"/>
-    <property name="stdin.encoding" value="UTF-8"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
-    <property name="java.class.version" value="70.0"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25+37-LTS-jvmci-b01"/>
+    <property name="stdin.encoding" value="Cp1252"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="maven.repo.local" value="C:\Users\AlonAorus\.m2\repository"/>
+    <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="calculateCost_ThrowsException_WhenLiquidityIsZeroOrLess" classname="com.guessmarket.engine.LMSRCalculatorTest" time="0.024"/>
+  <testcase name="calculateCost_ThrowsException_WhenLiquidityIsZeroOrLess" classname="com.guessmarket.engine.LMSRCalculatorTest" time="0.022"/>
   <testcase name="calculatePurchaseCost_MathematicalPrecision_MatchesExpected" classname="com.guessmarket.engine.LMSRCalculatorTest" time="0.004"/>
   <testcase name="calculateCost_ExtremelyHighShareCounts_NoOverflow" classname="com.guessmarket.engine.LMSRCalculatorTest" time="0.003"/>
 </testsuite>

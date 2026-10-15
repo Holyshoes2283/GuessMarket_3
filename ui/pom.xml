@@ -23,7 +23,8 @@
             <artifactId>engine</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- JavaFX Core Libraries -->
+
+        <!-- Base JavaFX Libraries (Compile time) -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -34,6 +35,67 @@
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+
+        <!-- Cross-Platform Native Libraries (Windows) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>win</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>win</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>win</classifier>
+        </dependency>
+
+        <!-- Cross-Platform Native Libraries (Mac) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>mac</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>mac</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>mac</classifier>
+        </dependency>
+
+        <!-- Cross-Platform Native Libraries (Linux) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>linux</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>linux</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>linux</classifier>
+        </dependency>
+
         <!-- JSON Parsing -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -43,6 +105,19 @@
     </dependencies>
 
     <build>
+        <!-- Forcing Maven to package FXML files from the java folder structure -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.fxml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <!-- Compiler Plugin -->
             <plugin>
@@ -70,7 +145,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <!-- CRITICAL FIX: Point to the AppLauncher to bypass JPMS module restrictions -->
-                                    <mainClass>com.guessmarket.ui.AppLauncher</mainClass>
+                                    <mainClass>com.guessmarket.ui.views.Launcher</mainClass>
                                 </transformer>
                             </transformers>
                             <!-- Strip signatures to prevent SecurityExceptions when shading signed JARs -->
@@ -89,14 +164,13 @@
                 </executions>
             </plugin>
 
-            <!-- JavaFX Plugin (Used mostly for mvn javafx:run during development) -->
+            <!-- JavaFX Plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <!-- Also pointed to AppLauncher for consistency -->
-                    <mainClass>com.guessmarket.ui.AppLauncher</mainClass>
+                    <mainClass>com.guessmarket.ui.views.Launcher</mainClass>
                 </configuration>
             </plugin>
         </plugins>
